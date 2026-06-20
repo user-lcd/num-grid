@@ -1,7 +1,10 @@
+
 # Num Grid
 
+**当前版本：v0.2.0**
+
 [![Rust](https://img.shields.io/badge/rust-1.70%2B-blue.svg)](https://www.rust-lang.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-green.svg)](LICENSE)
 
 一个探索数字填充游戏最优解的高性能并行搜索算法。
 
@@ -15,7 +18,7 @@
 
 ## 示例
 
-初始 `1` 位于 `(0,0), (1,0)` 时，最优解可达数字 54（具体视搜索参数）。运行程序将输出最终网格和最大数字。
+初始 `1` 位于 `(0,0), (1,0)` 时，最优解可达较高数字（具体视搜索参数）。运行程序将输出最终网格和最大数字。
 
 ## 编译与运行
 
@@ -43,7 +46,7 @@ cargo build --release
 cargo run --release
 ```
 
-程序会自动开始搜索，并在找到更优解时打印当前网格和最大数字。最终输出 "搜索完成！"。
+程序会自动开始搜索，并在找到更优解时打印当前网格和最大数字。最终输出最终最优网格。
 
 ## 配置
 
@@ -66,8 +69,9 @@ y\x  -4 -3 -2 -1  0  1  2  3  4
  -3   . 34 33 16 32 19 27 45  .
  -4   .  . 50 48 35  . 46  .  .
 ...
-搜索完成！
 ```
+
+（实际输出中的坐标轴颜色已在终端显示，此处省略转义字符。）
 
 ## 算法亮点
 
@@ -78,20 +82,16 @@ y\x  -4 -3 -2 -1  0  1  2  3  4
 
 ## 依赖项
 
-- `rayon`：数据并行库
-- `fxhash`：快速哈希表
+- [`rayon`](https://docs.rs/rayon)：数据并行库
+- [`fxhash`](https://docs.rs/fxhash)：快速哈希表
+- [`arrayvec`](https://docs.rs/arrayvec)：固定大小数组
 
-详见 `Cargo.toml`。
+详见 [`Cargo.toml`](Cargo.toml)。
 
 ## 许可
 
-本项目采用 MIT 许可。
+本项目采用 MIT 或 Apache-2.0 双许可。
 
 ## 贡献
 
 欢迎提交 Issue 和 Pull Request。若有优化算法或新功能的建议，请开启讨论。
-
-## 参考文献
-
-- [数字填充游戏 (Number Filling Puzzle)](https://en.wikipedia.org/wiki/Number_filling_puzzle) 类似概念
-- Rust 并行编程: 《Rust Atomics and Locks》
